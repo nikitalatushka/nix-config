@@ -1,7 +1,7 @@
 # ~/.config/nix/flake.nix
 
 {
-	description = "My system configuration";
+	description = "Nikita's system configuration for MacBook Pro 16 (2019)";
 	
 	inputs = {
 		# Used to install packages 
