@@ -11,9 +11,14 @@
 			url = "github:LnL7/nix-darwin";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		# Used to manager user-level configs and dotfiles
+		home-manager = {
+			url = "github:nix-community/home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 	
-	outputs = inputs@{ self, nix-darwin, nixpkgs }:
+	outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }:
 	let
 		configuration = {pkgs, ... }: {
 			services.nix-daemon.enable = true;
@@ -147,16 +152,35 @@
 					"Bear: Markdown Notes" = 1091189122;
 					"Affinity Photo 2: Image Editor" = 1616822987;
 					"Darkroom: Photo & Video Editor" = 953286746;
-					"Adobe Lightroom" = 1451544217;
-					"Paprika Recipe Manager 3" = 3222628;
+					#"Adobe Lightroom" = 1451544217;
+					#"Paprika Recipe Manager 3" = 3222628;
 				};
 			};
+		};
+		homeconfig = {pkgs, ... }: {
+			# this is internal compatibility configuration 
+            # for home-manager, don't change this!
+            home.stateVersion = "23.05";
+            # Let home-manager install and manage itself.
+            programs.home-manager.enable = true;
+
+            home.packages = with pkgs; [];
+
+            home.sessionVariables = {
+                EDITOR = "vim";
+            };
 		};
 	in
 	{
 		darwinConfigurations."mbp" = nix-darwin.lib.darwinSystem {
 			modules = [
-			 configuration
+				configuration
+				home-manager.darwinModules.home-manager {
+					home-manager.useGlobalPkgs = true;
+                	home-manager.useUserPackages = true;
+	                home-manager.verbose = true;
+    	            home-manager.users.nikita = homeconfig;
+				}
 			];
 		};
 	};
