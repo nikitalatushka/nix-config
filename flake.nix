@@ -142,6 +142,14 @@
 				"wireshark"
 				"zotero"
 			];
+			
+			masApps = {
+				"Bear: Markdown Notes" = 1091189122;
+				"Affinity Photo 2: Image Editor" = 1616822987;
+				"Darkroom: Photo & Video Editor" = 953286746;
+				"Adobe Lightroom" = 1451544217;
+				"Paprika Recipe Manager 3" = 3222628;
+			};
 		};
 		
 		# Used for enabling Touch ID for `sudo`
