@@ -60,6 +60,11 @@
 		brews = [];
 		casks = [];
 	};
+
+	# Used for enabling Touch ID for `sudo`
+	# so you don't have to keep entering your password every rebuild.
+	#
+	security.pam.enableSudoTouchIdAuth = true;
     };
   in
   {
