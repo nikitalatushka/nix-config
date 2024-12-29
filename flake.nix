@@ -16,8 +16,8 @@
 	outputs = inputs@{ self, nix-darwin, nixpkgs }:
 	let
 		configuration = {pkgs, ... }: {
-		
 			services.nix-daemon.enable = true;
+			
 			# Necessary for using flakes on this system.
 			nix.settings.experimental-features = "nix-command flakes";
 		
@@ -35,128 +35,123 @@
 			users.users.nikita = {
 				name = "nikita";
 				home = "/Users/nikita";
-		};
-	
-		# Create /etc/zshrc that loads the nix-darwin environment.
-		programs.zsh.enable = true;
-	
-		# This attribute is a list of packages to install.
-		# Lists in Nix are space-separated.
-		# pkgs refers to nixpkgs - the standard repository for Nix
-		# packages are called derivations within nixpkgs
-		#
-		environment.systemPackages = [pkgs.neofetch];
+			};
+			
+			# Create /etc/zshrc that loads the nix-darwin environment.
+			programs.zsh.enable = true;
 		
-		homebrew = {
-			enable = true;
-			# This option makes the home-brew config declarative.
-			# Only packages specified in this file will be installed. 
-			# Packages not in the declared list will be removed
-			# when you reload with `darwin-rebuild switch`.
-			#onActivation.cleanup = "uninstall";
-		
-			taps = [];
+			# This attribute is a list of packages to install.
+			# Lists in Nix are space-separated.
+			# pkgs refers to nixpkgs - the standard repository for Nix
+			# packages are called derivations within nixpkgs
+			environment.systemPackages = [pkgs.neofetch];
 			
-			brews = [
-				"ack"
-				"aircrack-ng"
-				"bash-completion@2"
-				"bfg"
-				"binutils"
-				"binwalk"
-				"bramstein/webfonttools/sfnt2woff"
-				"bramstein/webfonttools/sfnt2woff-zopfli"
-				"cifer"
-				"dex2jar"
-				"dns2tcp"
-				"fcrackzip"
-				"findutils"
-				"foremost"
-				"ghostscript"
-				"git"
-				"git-lfs"
-				"gnupg"
-				"grep"
-				"hashpump"
-				"hydra"
-				"john"
-				"knock"
-				"lynx"
-				"mas"
-				"moreutils"
-				"mysql"
-				"netpbm"
-				"nmap"
-				"node"
-				"openssh"
-				"php"
-				"pigz"
-				"pngcheck"
-				"pv"
-				"pyenv-virtualenv"
-				"rename"
-				"rlwrap"
-				"screen"
-				"socat"
-				"sqlmap"
-				"ssh-copy-id"
-				"tcpflow"
-				"tcpreplay"
-				"tcptrace"
-				"tealdeer"
-				"tree"
-				"ucspi-tcp"
-				"unar"
-				"vbindiff"
-				"woff2"
-				"xpdf"
-			];
+			# Used for enabling Touch ID for `sudo`
+			# so you don't have to keep entering your password every rebuild.
+			security.pam.enableSudoTouchIdAuth = true;
 			
-			casks = [
-				"alfred"
-				"balenaetcher"
-				"bbedit"
-				"bitwarden"
-				"caffeine"
-				"calibre"
-				"chromium"
-				"clion"
-				"datagrip"
-				"dataspell"
-				"firefox"
-				"forklift"
-				"google-chrome"
-				"google-drive"
-				"iterm2"
-				"libreoffice"
-				"linearmouse"
-				"obsidian"
-				"pycharm"
-				"rar"
-				"rectangle"
-				"the-unarchiver"
-				"virtualbox"
-				"visual-studio-code"
-				"vlc"
-				"webstorm"
-				"wireshark"
-				"zotero"
-			];
-			
-			masApps = {
-				"Bear: Markdown Notes" = 1091189122;
-				"Affinity Photo 2: Image Editor" = 1616822987;
-				"Darkroom: Photo & Video Editor" = 953286746;
-				"Adobe Lightroom" = 1451544217;
-				"Paprika Recipe Manager 3" = 3222628;
+			homebrew = {
+				enable = true;
+				# This option makes the home-brew config declarative.
+				# Only packages specified in this file will be installed. 
+				# Packages not in the declared list will be removed
+				# when you reload with `darwin-rebuild switch`.
+				#onActivation.cleanup = "uninstall";
+				
+				taps = [];
+				brews = [
+					"ack"
+					"aircrack-ng"
+					"bash-completion@2"
+					"bfg"
+					"binutils"
+					"binwalk"
+					"bramstein/webfonttools/sfnt2woff"
+					"bramstein/webfonttools/sfnt2woff-zopfli"
+					"cifer"
+					"dex2jar"
+					"dns2tcp"
+					"fcrackzip"
+					"findutils"
+					"foremost"
+					"ghostscript"
+					"git"
+					"git-lfs"
+					"gnupg"
+					"grep"
+					"hashpump"
+					"hydra"
+					"john"
+					"knock"
+					"lynx"
+					"mas"
+					"moreutils"
+					"mysql"
+					"netpbm"
+					"nmap"
+					"node"
+					"openssh"
+					"php"
+					"pigz"
+					"pngcheck"
+					"pv"
+					"pyenv-virtualenv"
+					"rename"
+					"rlwrap"
+					"screen"
+					"socat"
+					"sqlmap"
+					"ssh-copy-id"
+					"tcpflow"
+					"tcpreplay"
+					"tcptrace"
+					"tealdeer"
+					"tree"
+					"ucspi-tcp"
+					"unar"
+					"vbindiff"
+					"woff2"
+					"xpdf"
+				];
+				casks = [
+					"alfred"
+					"balenaetcher"
+					"bbedit"
+					"bitwarden"
+					"caffeine"
+					"calibre"
+					"chromium"
+					"clion"
+					"datagrip"
+					"dataspell"
+					"firefox"
+					"forklift"
+					"google-chrome"
+					"google-drive"
+					"iterm2"
+					"libreoffice"
+					"linearmouse"
+					"obsidian"
+					"pycharm"
+					"rar"
+					"rectangle"
+					"the-unarchiver"
+					"virtualbox"
+					"visual-studio-code"
+					"vlc"
+					"webstorm"
+					"wireshark"
+					"zotero"
+				];
+				masApps = {
+					"Bear: Markdown Notes" = 1091189122;
+					"Affinity Photo 2: Image Editor" = 1616822987;
+					"Darkroom: Photo & Video Editor" = 953286746;
+					"Adobe Lightroom" = 1451544217;
+					"Paprika Recipe Manager 3" = 3222628;
+				};
 			};
 		};
-		
-		# Used for enabling Touch ID for `sudo`
-		# so you don't have to keep entering your password every rebuild.
-		security.pam.enableSudoTouchIdAuth = true;
-		};
-	
 	in
 	{
 		darwinConfigurations."mbp" = nix-darwin.lib.darwinSystem {
