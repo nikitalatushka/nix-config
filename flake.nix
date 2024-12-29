@@ -56,8 +56,10 @@
 			#onActivation.cleanup = "uninstall";
 		
 			taps = [];
-			brews = [];
-			casks = [];
+			
+			brews = [ack aircrack-ng bash-completion@2 bfg binutils binwalk bramstein/webfonttools/sfnt2woff bramstein/webfonttools/sfnt2woff-zopfli cifer dex2jar dns2tcp fcrackzip findutils foremost ghostscript git git-lfs gnupg grep hashpump hydra john knock lynx mas moreutils mysql netpbm nmap node openssh php pigz pngcheck pv pyenv-virtualenv rename rlwrap screen socat sqlmap ssh-copy-id tcpflow tcpreplay tcptrace tealdeer tree ucspi-tcp unar vbindiff woff2 xpdf];
+			
+			casks = [alfred balenaetcher bbedit bitwarden caffeine calibre chromium clion datagrip dataspell firefox forklift google-chrome google-drive iterm2 libreoffice linearmouse	obsidian pycharm rar rectangle the-unarchiver virtualbox visual-studio-code vlc webstorm wireshark zotero];
 		};
 		
 		# Used for enabling Touch ID for `sudo`
