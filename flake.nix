@@ -45,6 +45,21 @@
 	# packages are called derivations within nixpkgs
 	#
         environment.systemPackages = [pkgs.neofetch];
+
+	homebrew = {
+		enable = true;
+		
+		# This option makes the home-brew config declarative.
+		# Only packages specified in this file will be installed. 
+		# Packages not in the declared list will be removed
+		# when you reload with `darwin-rebuild switch`.
+		#
+		#onActivation.cleanup = "uninstall";
+
+		taps = [];
+		brews = [];
+		casks = [];
+	};
     };
   in
   {
