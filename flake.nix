@@ -51,7 +51,6 @@
                 pkgs.neofetch
                 pkgs.neovim
                 pkgs.tmux
-                pkgs.bitwarden-desktop
                 pkgs.mas
                 pkgs.tealdeer
             ];
@@ -122,10 +121,10 @@
                 ];
                 casks = [
                     "ghostty"
+                    "bitwarden"
                     #"alfred"
                     #"balenaetcher"
                     #"bbedit"
-                    #"bitwarden"
                     #"caffeine"
                     #"calibre"
                     #"chromium"
