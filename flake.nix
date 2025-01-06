@@ -121,7 +121,7 @@
                     #"xpdf"
                 ];
                 casks = [
-                    ghostty
+                    "ghostty"
                     #"alfred"
                     #"balenaetcher"
                     #"bbedit"
