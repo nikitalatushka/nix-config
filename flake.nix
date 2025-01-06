@@ -54,7 +54,6 @@
                 pkgs.bitwarden-desktop
                 pkgs.mas
                 pkgs.tealdeer
-                pkgs.ghostty
             ];
             
             # Used for enabling Touch ID for `sudo`
@@ -122,6 +121,7 @@
                     #"xpdf"
                 ];
                 casks = [
+                    ghostty
                     #"alfred"
                     #"balenaetcher"
                     #"bbedit"
