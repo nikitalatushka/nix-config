@@ -38,7 +38,7 @@
             # Darwin equivalent of `scutil --set` on macOS
             networking.hostName = "mbp2019";            
             networking.computerName = "Nikita's MacBook Pro";
-            networking.localHostName = "Nikitas-MBP";
+            networking.localHostName = "mbp2019";
     
             # Create /etc/zshrc that loads the nix-darwin environment.
             programs.zsh.enable = true;
@@ -59,7 +59,13 @@
             # so you don't have to keep entering your password every rebuild.
             security.pam.enableSudoTouchIdAuth = true;
             
-            homebrew = {
+            # Apple MacOS Defaults
+	    # https://daiderd.com/nix-darwin/manual/index.html
+            system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
+            system.defaults.NSGlobalDomain._HIHideMenuBar = true;
+            system.defaults.dock.autohide = true;
+            
+	    homebrew = {
                 enable = true;
                 # This option makes the home-brew config declarative.
                 # Only packages specified in this file will be installed. 
@@ -152,7 +158,8 @@
                 ];
                 masApps = {
                     "Bear: Markdown Notes" = 1091189122;
-                    #"Affinity Photo 2: Image Editor" = 1616822987;
+                    "BitWarden" = 1352778147;
+		    #"Affinity Photo 2: Image Editor" = 1616822987;
                     #"Darkroom: Photo & Video Editor" = 953286746;
                     #"Adobe Lightroom" = 1451544217;
                     #"Paprika Recipe Manager 3" = 3222628;
