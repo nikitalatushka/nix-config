@@ -11,9 +11,13 @@
             url = "github:LnL7/nix-darwin";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        home-manager = {
+            url = "github:nix-community/home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
     
-    outputs = inputs@{ self, nix-darwin, nixpkgs }:
+    outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
     let
         configuration = {pkgs, ... }: {
             services.nix-daemon.enable = true;
@@ -60,7 +64,7 @@
             security.pam.enableSudoTouchIdAuth = true;
             
             # Apple MacOS Defaults
-	    # https://daiderd.com/nix-darwin/manual/index.html
+            # https://daiderd.com/nix-darwin/manual/index.html
             system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
             system.defaults.NSGlobalDomain._HIHideMenuBar = true;
             system.defaults.dock.autohide = true;
@@ -159,7 +163,7 @@
                 masApps = {
                     "Bear: Markdown Notes" = 1091189122;
                     "BitWarden" = 1352778147;
-		    #"Affinity Photo 2: Image Editor" = 1616822987;
+                    #"Affinity Photo 2: Image Editor" = 1616822987;
                     #"Darkroom: Photo & Video Editor" = 953286746;
                     #"Adobe Lightroom" = 1451544217;
                     #"Paprika Recipe Manager 3" = 3222628;
@@ -170,7 +174,13 @@
     {
         darwinConfigurations."mbp2019" = nix-darwin.lib.darwinSystem {
             modules = [
-             configuration
+                configuration
+                home-manager.darwinModules.home-manager
+                {
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.users.nikita = import ./home.nix;
+                }
             ];
         };
     };
