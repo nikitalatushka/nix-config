@@ -1,5 +1,5 @@
 # ~/.config/nix/flake.nix
-
+# rebuild with `$ darwin-rebuild switch --flake ~/.config/nix`
 {
     description = "Nikita's system configuration for MacBook Pro 16 (2019)";
     
@@ -57,6 +57,9 @@
                 pkgs.tmux
                 pkgs.mas
                 pkgs.tealdeer
+                pkgs.tree
+                pkgs.docker-client
+                pkgs.nerd-fonts.jetbrains-mono
             ];
             
             # Used for enabling Touch ID for `sudo`
