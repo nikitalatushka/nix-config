@@ -72,10 +72,16 @@
     programs.zsh = {
         enable = true;
         shellAliases = {
-            ll = "ls -l";
-            lsa = "ls -a";
-            lla = "ls -la";
+            l = "ls --color=auto";
+            ls = "ls --color=auto";
+            ll = "ls -l --color=auto";
+            lsa = "ls -a --color=auto";
+            lla = "ls -la --color=auto";
             ".." = "cd ..";
+            c = "clear";
+            source-nix = "darwin-rebuild switch --flake ~/.config/nix";
+            source-zsh = "source ~/.zshrc";
+            source-tmux = "tmux source ~/.config/tmux/tmux.conf";
         };
     };
 
