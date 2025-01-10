@@ -170,9 +170,5 @@
             # messages
             set -g message-style 'fg=yellow bg=red bold'
         ";
-        plugins = with pkgs.tmuxPlugins; [{
-            plugin = resurrect;
-            extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-        }];
     };
 }
