@@ -117,7 +117,9 @@
         extraConfig = "
             # split panes using \\ and =
             bind = split-window -v
+            bind \\\\ split-window -h #escape twice
             unbind %
+            unbind '\"' #escape once
 
             # Enable mouse control (clickable windows, panes, resizable panes)
             set -g mouse on
