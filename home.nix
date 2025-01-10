@@ -89,6 +89,22 @@
         enable = true;
         baseIndex = 1;
         shortcut = "a";
+        plugins = with pkgs.tmuxPlugins; [
+            {
+                plugin = resurrect;
+                extraConfig = ''
+                    # https://github.com/tmux-plugins/tmux-resurrect
+                    set -g @resurrect-strategy-nvim 'session';
+                '';
+            }
+            {
+                plugin = power-theme;
+                extraConfig = "
+                    # https://github.com/wfxr/tmux-power
+                    set -g @tmux_power_theme 'gold'
+                ";
+            }
+        ];
         extraConfig = "
             # split panes using \\ and =
             bind = split-window -v
