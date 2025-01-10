@@ -84,6 +84,15 @@
             source-tmux = "tmux source ~/.config/tmux/tmux.conf";
         };
     };
+    programs.zsh.initExtra = "source ~/.p10k.zsh";
+    programs.zsh.plugins = [
+        {
+            # https://discourse.nixos.org/t/how-to-use-powerlevel10k-prompt-with-zsh/41519/12
+            name = "powerlevel10k";
+            src = pkgs.zsh-powerlevel10k;
+            file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+    ];
 
     programs.tmux = {
         enable = true;
