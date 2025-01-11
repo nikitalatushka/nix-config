@@ -110,7 +110,11 @@
                 plugin = power-theme;
                 extraConfig = "
                     # https://github.com/wfxr/tmux-power
-                    set -g @tmux_power_theme 'gold'
+                    set -g @tmux_power_theme 'everforest'
+                    set -g @tmux_power_user_icon ' '
+                    set -g @tmux_power_session_icon '$'
+                    set -g @tmux_power_time_icon ' '
+                    set -g @tmux_power_date_icon ' '
                 ";
             }
         ];
