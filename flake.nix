@@ -20,6 +20,8 @@
     outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
     let
         configuration = {pkgs, ... }: {
+            # Nix-Darwin configs found here:
+            # https://daiderd.com/nix-darwin/manual/index.html
             services.nix-daemon.enable = true;
             
             # Necessary for using flakes on this system.
