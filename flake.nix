@@ -62,6 +62,9 @@
                 pkgs.tree
                 pkgs.docker-client
                 pkgs.nerd-fonts.jetbrains-mono
+
+                # Languages
+                pkgs.go
             ];
             
             # Used for enabling Touch ID for `sudo`
