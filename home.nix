@@ -85,6 +85,7 @@
             szsh = "source ~/.zshrc";
             stmux = "tmux source ~/.config/tmux/tmux.conf";
             gs = "git status";
+            ga = "git add";
             gaa = "git add *";
             gap = "git add -p";
             gd = "git diff";
