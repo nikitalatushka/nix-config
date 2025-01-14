@@ -140,6 +140,7 @@
                 casks = [
                     "ghostty"
                     "bitwarden"
+                    "firefox@developer-edition"
                     #"alfred"
                     #"balenaetcher"
                     #"bbedit"
